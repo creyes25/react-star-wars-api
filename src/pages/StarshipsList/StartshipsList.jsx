@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { getAllStartships } from "../../services/sw-api"
+import { Link } from "react-router-dom"
 
 const StartshipsList = () => {
   const [starships, setStarships] = useState([])
@@ -8,7 +9,6 @@ const StartshipsList = () => {
     const fetchStarchips = async () => {
       const starshipData = await getAllStartships()
       setStarships(starshipData.results)
-      // console.log(starships)
     }
     fetchStarchips()
   }, [])
@@ -16,12 +16,24 @@ const StartshipsList = () => {
 
   return (
     <>
-      <h1>Starships List</h1>
       <div>
-        {starships.map(starship => 
-            <h3 key={starship.name}>{starship.name}</h3>
-        )}
-      </div>
+        <h1>Starships List</h1>
+        <div className="ship-container">
+          {starships.map(starship => 
+            <Link 
+              key={starship.name}
+              to='/starship'
+              state={starship}
+            >
+              <h3>{starship.name}</h3>
+            </Link>
+          )}
+
+        </div>
+
+
+    </div>
+
     </>
   )
 }
