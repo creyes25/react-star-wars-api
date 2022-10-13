@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { getDetails } from "../../services/sw-api"
 import { useLocation } from "react-router-dom"
 import { Link } from 'react-router-dom'
-
+import PilotList from "../../components/PilotList/PilotList"
 
 const StarshipPage = () => {
   const [starshipData, setStarshipData] = useState({})
@@ -23,6 +23,8 @@ const StarshipPage = () => {
         <>
           <h4>NAME: {starshipData.name}</h4>
           <h4>MODEL: {starshipData.model}</h4>
+          <PilotList starship={starshipData}/>
+
           <Link
             to="/"
           >
@@ -38,7 +40,7 @@ const StarshipPage = () => {
 
       
 
-     </>
+    </>
 
 
 
