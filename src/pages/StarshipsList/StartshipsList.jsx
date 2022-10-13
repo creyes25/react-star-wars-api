@@ -23,15 +23,12 @@ const StartshipsList = () => {
             <Link 
               key={starship.name}
               to='/starship'
-              state={starship}
+              state= {{starship}}
             >
               <h3>{starship.name}</h3>
             </Link>
           )}
-
         </div>
-
-
     </div>
 
     </>
