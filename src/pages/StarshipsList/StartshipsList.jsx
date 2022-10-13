@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getAllStartships } from "../../services/sw-api"
 import { Link } from "react-router-dom"
-
+import './StarshipsList.css'
 const StartshipsList = () => {
   const [starships, setStarships] = useState([])
 
@@ -24,12 +24,13 @@ const StartshipsList = () => {
               key={starship.name}
               to='/starship'
               state= {{starship}}
+              className='starshipList'
             >
-              <h3>{starship.name}</h3>
+              <li>{starship.name}</li>
             </Link>
           )}
         </div>
-    </div>
+      </div>
 
     </>
   )

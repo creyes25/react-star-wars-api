@@ -3,10 +3,12 @@ import { getDetails } from "../../services/sw-api"
 import { useLocation } from "react-router-dom"
 import { Link } from 'react-router-dom'
 import PilotList from "../../components/PilotList/PilotList"
+import './StarshipPage.css'
 
 const StarshipPage = () => {
   const [starshipData, setStarshipData] = useState({})
   const location = useLocation()
+  console.log(location.state.starship.url)
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -18,7 +20,7 @@ const StarshipPage = () => {
 
   return (
     <>
-      <div>
+      <div className="starshipdetails">
         {starshipData.name ?
         <>
           <h4>NAME: {starshipData.name}</h4>
